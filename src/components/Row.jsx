@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
 import Movie from './Movie';
+import React, { useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const Row = ({ title, fetchURL, rowID }) => {
@@ -28,7 +28,7 @@ const Row = ({ title, fetchURL, rowID }) => {
         <MdChevronLeft
           onClick={slideLeft}
           className='bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block'
-          size={40}
+          size={35}
         />
         <div
           id={'slider' + rowID}
@@ -41,7 +41,7 @@ const Row = ({ title, fetchURL, rowID }) => {
         <MdChevronRight
           onClick={slideRight}
           className='bg-white right-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block'
-          size={40}
+          size={35}
         />
       </div>
     </>

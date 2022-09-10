@@ -4,15 +4,15 @@ import requests from '../Requests';
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
-
   const movie = movies[Math.floor(Math.random() * movies.length)];
 
   useEffect(() => {
-    axios.get(requests.requestPopular).then((response) => {
+    axios.get(requests.requestTopRated).then((response) => {
       setMovies(response.data.results);
     });
   }, []);
-  //   console.log(movie);
+    // console.log(movies);
+    // console.log(movie);
 
   const truncateString = (str, num) => {
     if (str?.length > num) {
@@ -33,7 +33,9 @@ const Main = () => {
           alt={movie?.title}
         />
         <div className='absolute w-full top-[26%] p-9 md:p-12'>
-          <h1 className='text-3xl md:text-5xl font-extrabold'>{movie?.title}</h1>
+          <h1 className='text-4xl md:text-5xl font-extrabold'>
+            {movie?.title}
+          </h1>
           <div className='my-4'>
             <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>
               Play
@@ -42,11 +44,14 @@ const Main = () => {
               Watch Later
             </button>
           </div>
-          <p className='text-gray-400 text-sm'>
-            Released: {movie?.release_date}
+          {/* <p className='text-gray-400 text-sm'>
+            Released : {movie?.release_date}
+          </p> */}
+          <p className='text-gray-400 text-lg mb-1 font-medium'>
+            Rating : {movie?.vote_average} / 10
           </p>
           <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>
-            {truncateString(movie?.overview, 150)}
+            {truncateString(movie?.overview, 200)}
           </p>
         </div>
       </div>
