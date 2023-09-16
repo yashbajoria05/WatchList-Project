@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 
 const Login = () => {
-  const { user, logIn } = UserAuth();
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ error, setError ] = useState('')
+  const { user, logIn } = UserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -62,7 +62,7 @@ const Login = () => {
                 <p>Need Help?</p>
               </div>
               <p className='py-8'>
-                <span className='text-gray-600'>New to WatchList?</span>{' '}
+                <span className='text-gray-600 mr-2'>New to WatchList?</span>
                 <Link to='/signup'>Sign Up</Link>
               </p>
             </form>

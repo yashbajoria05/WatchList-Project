@@ -13,7 +13,7 @@ const Signup = () => {
     try {
       await signUp(email, password);
       navigate('/')
-    } catch (error) {
+    }catch (error) {
       console.log(error);
     }
   };
@@ -60,10 +60,9 @@ const Signup = () => {
                   <p>Need Help?</p>
                 </div>
                 <p className='py-8'>
-                  <span className='text-gray-600'>
+                  <span className='text-gray-600 mr-2'>
                     Already subscribed to WatchList?
                   </span>
-                  <span>  </span>
                   <Link to='/login'>Sign In</Link>
                 </p>
               </form>

@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import requests from '../Requests';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import requests from "../Requests";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -11,46 +11,45 @@ const Main = () => {
       setMovies(response.data.results);
     });
   }, []);
-    // console.log(movies);
-    // console.log(movie);
+  // console.log(movies);
+  // console.log(movie);
 
   const truncateString = (str, num) => {
     if (str?.length > num) {
-      return str.slice(0, num) + '...';
-    }
-    else {
+      return str.slice(0, num) + "...";
+    } else {
       return str;
     }
   };
 
   return (
-    <div className='w-full h-[640px] text-white'>
-      <div className='w-full h-full'>
-        <div className='absolute w-full h-[640px] bg-gradient-to-r from-black'></div>
+    <div className="w-full h-[500px] md:h-[640px] text-white">
+      <div className="w-full h-full">
+        <div className="absolute w-full h-[500px] md:h-[640px] bg-gradient-to-r from-black"></div>
         <img
-          className='w-full h-full object-cover'
+          className="w-full h-full object-cover"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
         />
-        <div className='absolute w-full top-[26%] p-9 md:p-12'>
-          <h1 className='text-4xl md:text-5xl font-extrabold'>
+        <div className="absolute w-auto top-[140px] p-4 md:p-9">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold">
             {movie?.title}
           </h1>
-          <div className='my-4'>
-            <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>
+          <div className="my-3 md:my-4">
+            <button className="border bg-gray-300 text-black border-gray-300 py-1.5 px-3 md:py-2 md:px-5">
               Play
             </button>
-            <button className='border text-white border-gray-300 py-2 px-5 ml-4'>
+            <button className="border text-white border-gray-300 py-1.5 px-3 md:py-2 md:px-5 ml-2 md:ml-4">
               Watch Later
             </button>
           </div>
           {/* <p className='text-gray-400 text-sm'>
             Released : {movie?.release_date}
           </p> */}
-          <p className='text-gray-400 text-lg mb-1 font-medium'>
+          <p className="text-gray-400 text-md md:text-lg mb-1 font-medium">
             Rating : {movie?.vote_average} / 10
           </p>
-          <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>
+          <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200">
             {truncateString(movie?.overview, 200)}
           </p>
         </div>
